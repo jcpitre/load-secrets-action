@@ -66,6 +66,8 @@ export const loadSecrets = async (shouldExportEnv: boolean): Promise<void> => {
 	// and make them available in the next steps either as step outputs or as environment variables.
 	const res = await exec.getExecOutput(`sh -c "op env ls"`);
 
+	core.info("JCJCJC res = " + res.stdout);
+
 	if (res.stdout === "") {
 		return;
 	}
