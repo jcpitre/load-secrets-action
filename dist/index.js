@@ -30122,15 +30122,15 @@ const loadSecrets = async (shouldExportEnv) => {
     }
 
     core.info("JCJCJC res.stdout = " + res.stdout);
-    core.info("JCJCJC envManagedVariables = " + envManagedVariables);
-    core.info("JCJCJC process = " + JSON.stringify(Object.entries(process)))
-// 	envs = res.stdout.replace(/\n+$/g, "").split(/\r?\n/);
-    core.info("JCJCJC process.env[envManagedVariables] = " + process.env[envManagedVariables]);
-	const envs = process.env[envManagedVariables].split(",");
+//    core.info("JCJCJC envManagedVariables = " + envManagedVariables);
+//    core.info("JCJCJC process = " + JSON.stringify(Object.entries(process)))
+ 	const envs = res.stdout.replace(/\n+$/g, "").split(/\r?\n/);
+//    core.info("JCJCJC process.env[envManagedVariables] = " + process.env[envManagedVariables]);
+//	const envs = process.env[envManagedVariables].split(",");
 	core.info("JCJCJC envs = " + envs);
 
-	const keys = process.env['keys'];
-	core.info("JCJCJC keys = " + keys);
+//	const keys = process.env['keys'];
+//	core.info("JCJCJC keys = " + keys);
     for (const envName of envs) {
         extractSecret(envName, shouldExportEnv);
     }
