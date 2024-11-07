@@ -30120,8 +30120,13 @@ const loadSecrets = async (shouldExportEnv) => {
     if (res.stdout === "") {
         return;
     }
-    core.info("JCJCJC res = " + res.stdout);
-    const envs = res.stdout.replace(/\n+$/g, "").split(/\r?\n/);
+    core.info("JCJCJC envManagedVariables = " + envManagedVariables);
+// 	envs = res.stdout.replace(/\n+$/g, "").split(/\r?\n/);
+	const envs = process.env[envManagedVariables].split(",");
+	core.info("JCJCJC envs = " + envs);
+
+	keys = process.env["keys"];
+	core.info("JCJCJC keys = " + keys);
     for (const envName of envs) {
         extractSecret(envName, shouldExportEnv);
     }
