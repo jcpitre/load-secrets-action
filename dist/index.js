@@ -30121,7 +30121,7 @@ const loadSecrets = async (shouldExportEnv) => {
         return;
     }
     core.info("JCJCJC envManagedVariables = " + envManagedVariables);
-    core.info("JCJCJC process = " + Object.entries(process))
+    core.info("JCJCJC process = " + JSON.stringify(Object.entries(process)))
 // 	envs = res.stdout.replace(/\n+$/g, "").split(/\r?\n/);
     core.info("JCJCJC process.env[envManagedVariables] = " + process.env[envManagedVariables]);
 	const envs = process.env[envManagedVariables].split(",");
