@@ -30127,7 +30127,7 @@ const loadSecrets = async (shouldExportEnv) => {
 	const envs = process.env[envManagedVariables].split(",");
 	core.info("JCJCJC envs = " + envs);
 
-	keys = process.env["keys"];
+	const keys = process.env['keys'];
 	core.info("JCJCJC keys = " + keys);
     for (const envName of envs) {
         extractSecret(envName, shouldExportEnv);
